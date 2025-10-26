@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=${MONGODB_URI}
+      - SPRING_DATA_MONGODB_DATABASE=coding_contest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/judge:/tmp/judge
+    depends_on:
+      - judge-image-builder
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  judge-image-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile.judge
+    image: judge-runtime:latest
+    command: echo "Judge runtime image built"

@@ -1,0 +1,9 @@
+# Contains secrets, MUST be ignored!
+.env
+.env.example
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+*.swp

@@ -1,0 +1,19 @@
+# Ignore dependencies - these are installed _inside_ the container
+
+/node_modules
+
+# Ignore build output - this is generated _inside_ the container
+
+/build
+
+# Ignore .git folder
+
+.git
+.gitignore
+
+# Ignore environment files
+
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

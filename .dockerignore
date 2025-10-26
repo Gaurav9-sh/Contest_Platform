@@ -1,0 +1,21 @@
+# Exclude the entire frontend and backend sub-projects
+
+/frontend
+/backend
+
+# Exclude Git history
+
+.git
+.gitignore
+
+# Exclude IDE/OS files
+
+.idea/
+.vscode/
+.DS_Store
+
+# Exclude other root files not needed for the judge image
+
+docker-compose.yml
+.env
+.env.example
